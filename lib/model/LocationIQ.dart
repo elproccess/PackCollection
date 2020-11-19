@@ -7,7 +7,7 @@ class LocationIQ{
   String licence;
   String lat;
   String lon;
-  List<String> boundingbox;
+  List<dynamic> boundingbox;
   String class_;
   String type;
   String display_name;

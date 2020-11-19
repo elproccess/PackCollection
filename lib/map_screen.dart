@@ -5,6 +5,7 @@ import 'dart:ui' as ui;
 import 'package:google_maps/google_maps.dart';
 import 'package:js/js.dart';
 import 'services/locationJs.dart';
+import 'services/autoCompleteApi.dart';
 
 import 'widget/address_text_box.dart';
 
@@ -23,6 +24,7 @@ class _mapScreenState extends State<mapScreen> {
     _getCurrentLocation().then((value) => {
       longitude = value.lng,
       latitude = value.lat,
+      Operations.autoCompleteApi(),
     });
 
 
