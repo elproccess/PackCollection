@@ -4,9 +4,10 @@ import 'dart:html';
 import 'dart:ui' as ui;
 import 'package:google_maps/google_maps.dart';
 import 'package:js/js.dart';
+import 'package:pack_collection/model/LocationIQ.dart';
 import 'services/locationJs.dart';
 import 'services/autoCompleteApi.dart';
-
+import 'package:collapsible_sidebar/collapsible_sidebar.dart';
 import 'widget/address_text_box.dart';
 
 class mapScreen extends StatefulWidget {
@@ -18,16 +19,18 @@ class _mapScreenState extends State<mapScreen> {
 
   double latitude;
   double longitude;
+  List<LocationIQ> autoCompleteList;
 
   @override
   void initState() {
     _getCurrentLocation().then((value) => {
       longitude = value.lng,
       latitude = value.lat,
-      Operations.autoCompleteApi(),
     });
 
-
+//    Operations.autoCompleteApi().then((value) => {
+//      autoCompleteList = value,
+//    });
     super.initState();
   }
 
